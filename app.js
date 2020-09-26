@@ -7,18 +7,21 @@ $(document).ready(function () {
     currentDayElement.text(currentTime);
   };
   updateTime();
-  setInterval(updateTime, 1000);
+  setInterval(updateTime, 6000);
 
   var displayTime = 9;
   var AM = true;
+  var militaryTimeArray = [];
   //Populate time blocks
   for (let i = 1; i < 9; i++) {
     var currentRow = $("<div class='row'>");
     var currentHour = $("<div class='col-1 hour time-block'>");
     if (AM) {
       currentHour.text(displayTime + "AM");
+      militaryTimeArray.push(displayTime);
     } else {
       currentHour.text(displayTime + "PM");
+      militaryTimeArray.push(displayTime + 12);
     }
     var currentDescription = $("<input class='col-10 past description'>");
     var currentSave = $("<div class='col-1 saveBtn'>");
@@ -33,8 +36,9 @@ $(document).ready(function () {
     }
   }
 
-  //Add hour to left row
-  for (let i = 1; i < 9; i++) {}
+  //Color code
+  //1. convert display time to military time
+  console.log(militaryTimeArray);
 
   // //Update colors when time past
   let updateCalendarColor = function () {
