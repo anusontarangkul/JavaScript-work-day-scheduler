@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Passion+One&display=swap");
+
+* {
+  font-family: "Passion One", cursive;
+  box-sizing: border-box;
+  margin: 0 0 0 0;
+}
+
+.center {
+  padding-bottom: 1rem;
+}
+
+header {
+  background-color: lightskyblue;
+}
+
+h1 {
+  font-size: 5rem;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.head-p {
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  font-size: 2rem;
+}
