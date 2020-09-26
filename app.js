@@ -13,18 +13,17 @@ $(document).ready(function () {
   var displayTime = 9;
   var AM = true;
   var militaryTimeArray = [];
+  var saveBtnCount = 1;
+  var current;
   //Populate time blocks
   function displaySchedule() {
     for (let i = 1; i < 9; i++) {
-      var militaryTime = displayTime;
       var currentRow = $("<div class='row'>");
       var currentHour = $("<div class='col-1 hour time-block'>");
       if (AM) {
         currentHour.text(displayTime + "AM");
-        // militaryTimeArray.push(displayTime);
       } else {
         currentHour.text(displayTime + "PM");
-        // militaryTimeArray.push(displayTime + 12);
       }
       var currentDescription = $("<input class='col-10 description'>");
       if (
@@ -41,6 +40,8 @@ $(document).ready(function () {
         currentDescription.addClass("present");
       }
       var currentSave = $("<div class='col-1 saveBtn'>");
+      currentSave.data("value", i);
+
       $(".container").append(currentRow);
       currentRow.append(currentHour);
       currentRow.append(currentDescription);
@@ -63,12 +64,15 @@ $(document).ready(function () {
   //1. convert display time to military time
   // console.log(militaryTimeArray);
 
-  // //Update colors when time past
+  // //Update colors when
+  var text = $("textarea");
+  var SaveBtn = $(".saveBtn");
 
-  updateCalendarColor();
-  setInterval(updateCalendarColor, 1000);
-
-  $(".saveBtn").on("click");
+  $(".saveBtn").on("click", function () {
+    var btnSave = $(this).data("value");
+    console.log(btnSave);
+    // localStorage.setItem(btnSave, textSave);
+  });
   //   //Store data
   //   $("avebtton");onabort("clikd", function)
   //   this.value
