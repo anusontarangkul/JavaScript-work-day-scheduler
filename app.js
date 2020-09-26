@@ -8,4 +8,13 @@ $(document).ready(function () {
   };
   updateTime();
   setInterval(updateTime, 1000);
+
+  //1 hour block calendar
+
+  // //Update colors when time past
+  let updateCalendarColor = function () {
+    let currentTime = parseInt(moment().format("HH"));
+  };
+  updateCalendarColor();
+  setInterval(updateCalendarColor, 1000);
 });
