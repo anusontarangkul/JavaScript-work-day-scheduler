@@ -1,7 +1,11 @@
 $(document).ready(function () {
   // Set dynamic date in header
   var currentDayElement = $("#currentDay");
-  var currentDayMoment = moment().format("MMM Do YYYY");
-  currentDayElement.text(currentDayMoment);
-  test;
+
+  let updateTime = function () {
+    let currentTime = moment().format("MMM Do YYYY");
+    currentDayElement.text(currentTime);
+  };
+  updateTime();
+  setInterval(updateTime, 1000);
 });
