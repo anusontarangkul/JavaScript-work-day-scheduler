@@ -2,7 +2,7 @@ $(document).ready(function () {
   // Set dynamic date in header
   let currentHourMoment = parseInt(moment().format("HH"));
   var currentDayElement = $("#currentDay");
-  var displayTime = 9;
+
   var AM = true;
   var containerElement = $(".container");
 
@@ -14,6 +14,7 @@ $(document).ready(function () {
   //Populate time blocks
   function displaySchedule() {
     containerElement.empty();
+    var displayTime = 9;
     for (let i = 1; i < 9; i++) {
       var currentRow = $("<div class='row'>");
       var currentHour = $("<div class='col-1 hour time-block'>");
@@ -108,6 +109,6 @@ $(document).ready(function () {
   updateTime();
   setInterval(updateTime, 6000);
   displaySchedule();
-
+  setInterval(updateTime, 60000);
   loadStorage();
 });
