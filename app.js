@@ -121,14 +121,19 @@ $(document).ready(function () {
         localStorage.setItem("4pm", JSON.stringify(form));
         break;
     }
-    // console.log(btnSave);
-    // var textSave = text[btnSave + 1].value;
-    // switch(btnSave){
-    //   case 1:
   });
-  // localStorage.setItem(btnSave, textSave);
-  // });
-  //   //Store data
-  //   $("avebtton");onabort("clikd", function)
-  //   this.value
+
+  function loadStorage() {
+    // var firstStorage = JSON.parse(window.localStorage.getItem("9am"));
+    // $(".description-1").val(firstStorage);
+    $(".description-1").val(JSON.parse(window.localStorage.getItem("9am")));
+    $(".description-2").val(JSON.parse(window.localStorage.getItem("10am")));
+    $(".description-3").val(JSON.parse(window.localStorage.getItem("11am")));
+    $(".description-4").val(JSON.parse(window.localStorage.getItem("12pm")));
+    $(".description-5").val(JSON.parse(window.localStorage.getItem("1pm")));
+    $(".description-6").val(JSON.parse(window.localStorage.getItem("2pm")));
+    $(".description-7").val(JSON.parse(window.localStorage.getItem("3pm")));
+    $(".description-8").val(JSON.parse(window.localStorage.getItem("4pm")));
+  }
+  loadStorage();
 });
