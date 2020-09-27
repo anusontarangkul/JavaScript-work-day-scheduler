@@ -52,6 +52,9 @@ $(document).ready(function () {
       }
       var currentSave = $("<div class='col-1 saveBtn'>");
       currentSave.data("count", i);
+      currentSave.append(
+        "<img class='save-img' src='https://img.icons8.com/wired/64/000000/save.png'/>"
+      );
 
       $(".container").append(currentRow);
       currentRow.append(currentHour);
@@ -66,24 +69,8 @@ $(document).ready(function () {
   }
   displaySchedule();
 
-  // getData();
-  //Color code
-  //1. convert display time to military time
-  // console.log(militaryTimeArray);
-
-  // //Update colors when
   var text = $("textarea");
   var SaveBtn = $(".saveBtn");
-
-  // $(".saveBtn-1").on("click", function () {
-  //   var form = $(".description-1").val();
-  //   localStorage.setItem("9am", JSON.stringify(form));
-  // });
-
-  // $(".saveBtn").on("click", function () {
-  //   console.log("test");
-  //   this;
-  // });
 
   $(".saveBtn").on("click", function () {
     var btnSave = $(this).data("count");
@@ -124,8 +111,6 @@ $(document).ready(function () {
   });
 
   function loadStorage() {
-    // var firstStorage = JSON.parse(window.localStorage.getItem("9am"));
-    // $(".description-1").val(firstStorage);
     $(".description-1").val(JSON.parse(window.localStorage.getItem("9am")));
     $(".description-2").val(JSON.parse(window.localStorage.getItem("10am")));
     $(".description-3").val(JSON.parse(window.localStorage.getItem("11am")));
