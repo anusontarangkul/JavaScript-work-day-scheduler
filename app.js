@@ -2,31 +2,18 @@ $(document).ready(function () {
   // Set dynamic date in header
   let currentHourMoment = parseInt(moment().format("HH"));
   var currentDayElement = $("#currentDay");
+  var displayTime = 9;
+  var AM = true;
+  var containerElement = $(".container");
 
   let updateTime = function () {
     let currentTime = moment().format("MMM Do YYYY");
     currentDayElement.text(currentTime);
   };
-  updateTime();
-  setInterval(updateTime, 6000);
 
-  var displayTime = 9;
-  var AM = true;
-  var militaryTimeArray = [];
-  var saveBtnCount = 1;
-  var current;
-  var businessHoursArray = [
-    "9AM",
-    "10AM",
-    "11AM",
-    "12PM",
-    "1PM",
-    "2PM",
-    "3PM",
-    "4PM",
-  ];
   //Populate time blocks
   function displaySchedule() {
+    containerElement.empty();
     for (let i = 1; i < 9; i++) {
       var currentRow = $("<div class='row'>");
       var currentHour = $("<div class='col-1 hour time-block'>");
@@ -67,11 +54,8 @@ $(document).ready(function () {
       }
     }
   }
-  displaySchedule();
 
-  var text = $("textarea");
-  var SaveBtn = $(".saveBtn");
-
+  //Save tasks
   $(".saveBtn").on("click", function () {
     var btnSave = $(this).data("count");
     switch (btnSave) {
@@ -110,6 +94,7 @@ $(document).ready(function () {
     }
   });
 
+  //Load from local storage
   function loadStorage() {
     $(".description-1").val(JSON.parse(window.localStorage.getItem("9am")));
     $(".description-2").val(JSON.parse(window.localStorage.getItem("10am")));
@@ -120,5 +105,9 @@ $(document).ready(function () {
     $(".description-7").val(JSON.parse(window.localStorage.getItem("3pm")));
     $(".description-8").val(JSON.parse(window.localStorage.getItem("4pm")));
   }
+  updateTime();
+  setInterval(updateTime, 6000);
+  displaySchedule();
+
   loadStorage();
 });
